@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Conversions</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Conversions</h1>
+
+      <form class="form-inline">
+        <p class="form-control-static">Convert</p>
+
+        <input type="text" class="form-control" name="quantity_in_old_units" value="<%= "%g" % @quantity_in_old_units %>" placeholder="Quantity">
+
+        <select name="old_unit" class="form-control">
+          <% @available_units.each do |unit| %>
+            <% if @old_unit == unit %>
+              <option value="<%= unit %>" selected><%= unit %></option>
+            <% else %>
+              <option value="<%= unit %>"><%= unit %></option>
+            <% end %>
+          <% end %>
+        </select>
+
+        <p class="form-control-static">into</p>
+
+        <select name="new_unit" class="form-control">
+          <% @available_units.each do |unit| %>
+            <% if @new_unit == unit %>
+              <option value="<%= unit %>" selected><%= unit %></option>
+            <% else %>
+              <option value="<%= unit %>"><%= unit %></option>
+            <% end %>
+          <% end %>
+        </select>
+
+        <button type="submit" class="btn btn-default">Convert</button>
+      </form>
+
+      <% if @quantity_in_new_units %>
+        <div class="jumbotron">
+          <p><%= "%g" % @quantity_in_old_units %> <%= @old_unit %> = <%= "%g" % @quantity_in_new_units %> <%= @new_unit %></p>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>
