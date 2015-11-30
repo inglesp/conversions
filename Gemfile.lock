@@ -29,4 +29,7 @@ PLATFORMS
 
 DEPENDENCIES
   sinatra
-  units_converter
+  units_converter (= 0.0.1)
+
+BUNDLED WITH
+   1.10.6
